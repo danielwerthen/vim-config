@@ -9,7 +9,7 @@
 "-----------------------------------------------------------------------------
 
 " Get pathogen up and running
-filetype off 
+filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
@@ -23,12 +23,14 @@ filetype on
 filetype plugin on
 filetype indent on
 
-" Tabstops are 4 spaces
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set expandtab
+" Tabstops are 4 spaces hard
+set tabstop=4
+set shiftwidth=4
 set autoindent
+
+" highlight tabs and trailing spaces
+set listchars=tab:>-,trail:-
+set list
 
 " Printing options
 set printoptions=header:0,duplex:long,paper:letter
@@ -769,7 +771,7 @@ iab teh        the
 " Set up the window colors and size
 "-----------------------------------------------------------------------------
 if has("gui_running")
-  exe "set guifont=" . g:main_font
+  "exe "set guifont=" . g:main_font
   "if hostname() == "dqw-linux"
   "  set background=light
   "else
