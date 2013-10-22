@@ -13,6 +13,7 @@
 * **GNUPG**:         `git clone https://github.com/vim-scripts/gnupg.vim.git vim-gnupg`
 * **Gundo**:         `git clone https://github.com/sjl/gundo.vim.git vim-gundo`
 * **JSON**:          `git clone https://github.com/vim-scripts/vim-addon-json-encoding.git vim-json`
+* **jsHint**:        `git clone https://github.com/Shutnik/jshint2.vim.git vim-jshint`
 * **Jellybeans**:    `git clone https://github.com/nanotech/jellybeans.vim.git vim-jellybeans`
 * **L9**:            `git clone https://github.com/vim-scripts/L9.git vim-l9`
 * **MWUtils**:       `git clone https://github.com/MarcWeber/vim-addon-mw-utils.git vim-mwutils`

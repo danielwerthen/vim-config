@@ -29,8 +29,8 @@ set shiftwidth=4
 set autoindent
 
 " highlight tabs and trailing spaces
-set listchars=tab:>-,trail:-
-set list
+" set listchars=tab:>-,trail:-
+" set list
 
 " Printing options
 set printoptions=header:0,duplex:long,paper:letter
@@ -216,11 +216,11 @@ cnoremap <ESC><C-F> <S-Right>
 cnoremap <ESC><C-H> <C-W>
 
 " Maps to make handling windows a bit easier
-"noremap <silent> ,h :wincmd h<CR>
-"noremap <silent> ,j :wincmd j<CR>
-"noremap <silent> ,k :wincmd k<CR>
-"noremap <silent> ,l :wincmd l<CR>
-"noremap <silent> ,sb :wincmd p<CR>
+noremap <silent> ,h :wincmd h<CR>
+noremap <silent> ,j :wincmd j<CR>
+noremap <silent> ,k :wincmd k<CR>
+noremap <silent> ,l :wincmd l<CR>
+noremap <silent> ,sb :wincmd p<CR>
 noremap <silent> <C-F9>  :vertical resize -10<CR>
 noremap <silent> <C-F10> :resize +10<CR>
 noremap <silent> <C-F11> :resize -10<CR>
@@ -789,3 +789,12 @@ if has("gui_running")
   endif
 endif
 :nohls
+
+
+"---------------
+" Setup JSHint
+" ---------------------
+
+let jshint2_save = 1
+nmap <silent> <leader>jh :JSHint<CR>
+:autocmd BufWritePost *.js :JSHint<CR>
