@@ -6,6 +6,7 @@
 * **Completion**:    `git clone https://github.com/MarcWeber/vim-addon-completion.git vim-completion`
 * **EasyMotion**:    `git clone https://github.com/vim-scripts/EasyMotion.git vim-easymotion`
 * **EasyAlign**:     `git clone https://github.com/vim-scripts/vim-easy-align.git vim-easyalign`
+* **EasyGrep**:		 `git clone https://github.com/vim-scripts/EasyGrep.git vim-easygrep`
 * **FSwitch**:       `git clone https://github.com/derekwyatt/vim-fswitch.git vim-fswitch`
 * **Forms**:         `git clone https://github.com/megaannum/forms.git vim-forms`
 * **Fugitive**:      `git clone https://github.com/tpope/vim-fugitive.git vim-fugitive`
