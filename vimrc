@@ -24,8 +24,9 @@ filetype plugin on
 filetype indent on
 
 " Tabstops are 4 spaces hard
-set tabstop=4
-set shiftwidth=4
+set expandtab
+set tabstop=2
+set shiftwidth=2
 set autoindent
 
 " highlight tabs and trailing spaces
@@ -449,16 +450,55 @@ let g:SokobanLevelDirectory = "/home/dwyatt/.vim/bundle/vim-sokoban/VimSokoban/"
 "-----------------------------------------------------------------------------
 " FuzzyFinder Settings
 "-----------------------------------------------------------------------------
+"
+
+" FuzzyFinder
+" -----------------------------------------------------------------------------
+function! FufSetIgnore()
+
+    let ignorefiles = [ $HOME . "/.gitignore", ".gitignore" ]
+    let exclude_vcs = '\.(hg|git|bzr|svn|cvs)'
+    let ignore = '\v\~$'
+
+    for ignorefile in ignorefiles
+
+        if filereadable(ignorefile)
+            for line in readfile(ignorefile)
+                if match(line, '^\s*$') == -1 && match(line, '^#') == -1
+                    let line = substitute(line, '^/', '', '')
+                    let line = substitute(line, '\.', '\\.', 'g')
+                    let line = substitute(line, '\*', '.*', 'g')
+                    let ignore .= '|^' . line
+                endif
+            endfor
+        endif
+
+        let ignore .= '|^' . exclude_vcs
+        let g:fuf_coveragefile_exclude = ignore
+        let g:fuf_file_exclude = ignore
+        let g:fuf_dir_exclude = ignore
+
+    endfor
+endfunction
+
+" Bonus: My custom key mappings for FuzzyFinder
+" Calls the function to set the exclude variables, then runs FuzzyFinder
+nn <Tab>   :call FufSetIgnore() <BAR> :FufFile<CR>
+nn <S-Tab> :call FufSetIgnore() <BAR> :FufFile **/<CR>
+nn <F3>    :call FufSetIgnore() <BAR> :FufFile **/<CR>
+
 let g:fuf_splitPathMatching = 1
 let g:fuf_maxMenuWidth = 110
 let g:fuf_timeFormat = ''
+"let g:fuf_dir_exclude = '\v(^|[/\\])\.(hg|git|bzr)($|[/\\])$|(^|[/\\])(node_modules)'
 nmap <silent> ,fv :FufFile ~/.vim/<cr>
 nmap <silent> ,fc :FufMruCmd<cr>
 nmap <silent> ,fm :FufMruFile<cr>
 
 function! GetParentOfSourceDirectory()
   let fwd = expand('%:p:h')
-  let srcparent = substitute(fwd, '/[^/]*/src/.*', '', '')
+  "let srcparent = substitute(fwd, '/[^/]*/src/.*', '', '')
+  let srcparent = substitute(fwd, '\(/git/[^/]*\).*', '\1', '')
   return srcparent
 endfunction
 
@@ -791,10 +831,39 @@ endif
 :nohls
 
 
-"---------------
-" Setup JSHint
-" ---------------------
+" Start interactive EasyAlign in visual mode
+vmap <Enter> <Plug>(EasyAlign)
 
-let jshint2_save = 1
-nmap <silent> <leader>jh :JSHint<CR>
-:autocmd BufWritePost *.js :JSHint<CR>
+" Start interactive EasyAlign for a motion/text object
+nmap ga <Plug>(EasyAlign)
+
+
+" Syntactic
+
+let g:syntastic_check_on_open=1
+let g:syntastic_enable_signs=1
+let g:syntastic_javascript_checkers = ['jsxhint']
+
+" jshintrc
+
+function! s:find_jshintrc(dir)
+    let l:found = globpath(a:dir, '.jshintrc')
+    if filereadable(l:found)
+        return l:found
+    endif
+
+    let l:parent = fnamemodify(a:dir, ':h')
+    if l:parent != a:dir
+        return s:find_jshintrc(l:parent)
+    endif
+
+    return "~/.jshintrc"
+endfunction
+
+function! UpdateJsHintConf()
+    let l:dir = expand('%:p:h')
+    let l:jshintrc = s:find_jshintrc(l:dir)
+    let g:syntastic_javascript_jshint_conf = l:jshintrc
+endfunction
+
+au BufEnter * call UpdateJsHintConf()

@@ -14,7 +14,6 @@
 * **GNUPG**:         `git clone https://github.com/vim-scripts/gnupg.vim.git vim-gnupg`
 * **Gundo**:         `git clone https://github.com/sjl/gundo.vim.git vim-gundo`
 * **JSON**:          `git clone https://github.com/vim-scripts/vim-addon-json-encoding.git vim-json`
-* **jsHint**:        `git clone https://github.com/Shutnik/jshint2.vim.git vim-jshint`
 * **Jellybeans**:    `git clone https://github.com/nanotech/jellybeans.vim.git vim-jellybeans`
 * **L9**:            `git clone https://github.com/vim-scripts/L9.git vim-l9`
 * **MWUtils**:       `git clone https://github.com/MarcWeber/vim-addon-mw-utils.git vim-mwutils`
@@ -31,3 +30,4 @@
 * **VimProc**:       `git clone https://github.com/Shougo/vimproc.git vim-vimproc`
 * **VimShell**:      `git clone https://github.com/Shougo/vimshell.git vim-vimshell`
 * **XPTemplate**:    `git clone https://github.com/drmingdrmer/xptemplate.git vim-xptemplate`
+* **Syntastic**:     `git clone https://github.com/scrooloose/syntastic.git vim-syntastic`
