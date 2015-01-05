@@ -23,9 +23,10 @@ filetype on
 filetype plugin on
 filetype indent on
 
-" Tabstops are 4 spaces hard
-set tabstop=4
-set shiftwidth=4
+" Tabstops are 2 spaces hard
+set tabstop=2
+set shiftwidth=2
+set expandtab
 set autoindent
 
 " highlight tabs and trailing spaces
@@ -796,5 +797,31 @@ endif
 " ---------------------
 
 let jshint2_save = 1
+let jshint2_command = 'jsxhint'
 nmap <silent> <leader>jh :JSHint<CR>
 :autocmd BufWritePost *.js :JSHint<CR>
+
+
+
+let g:EasyGrepFileAssociations='/Users/danwer/.vim/bundle/vim-easygrep/plugin/EasyGrepFileAssociations'
+let g:EasyGrepMode=0
+let g:EasyGrepCommand=1
+let g:EasyGrepRecursive=1
+let g:EasyGrepSearchCurrentBufferDir=1
+let g:EasyGrepIgnoreCase=0
+let g:EasyGrepHidden=0
+let g:EasyGrepFilesToExclude='*.min.*,*/target/*,*.swp,*/logs/*.log,*/node_modules/*,*/bower_components/*'
+let g:EasyGrepAllOptionsInExplorer=1
+let g:EasyGrepWindow=0
+let g:EasyGrepReplaceWindowMode=0
+let g:EasyGrepOpenWindowOnMatch=1
+let g:EasyGrepEveryMatch=0
+let g:EasyGrepJumpToMatch=1
+let g:EasyGrepInvertWholeWord=0
+let g:EasyGrepFileAssociationsInExplorer=0
+let g:EasyGrepExtraWarnings=1
+let g:EasyGrepOptionPrefix='<leader>vy'
+let g:EasyGrepReplaceAllPerFile=0
+
+
+

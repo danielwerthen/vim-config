@@ -31,3 +31,4 @@
 * **VimProc**:       `git clone https://github.com/Shougo/vimproc.git vim-vimproc`
 * **VimShell**:      `git clone https://github.com/Shougo/vimshell.git vim-vimshell`
 * **XPTemplate**:    `git clone https://github.com/drmingdrmer/xptemplate.git vim-xptemplate`
+* **VimLess**:    `git clone https://github.com/groenewege/vim-less.git vim-less`
