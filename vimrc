@@ -483,8 +483,8 @@ endfunction
 
 " Bonus: My custom key mappings for FuzzyFinder
 " Calls the function to set the exclude variables, then runs FuzzyFinder
-nn <Tab>   :call FufSetIgnore() <BAR> :FufFile<CR>
-nn <S-Tab> :call FufSetIgnore() <BAR> :FufFile **/<CR>
+nn <S-Tab>   :call FufSetIgnore() <BAR> :FufFile<CR>
+nn <Tab> :call FufSetIgnore() <BAR> :FufFile **/<CR>
 nn <F3>    :call FufSetIgnore() <BAR> :FufFile **/<CR>
 
 let g:fuf_splitPathMatching = 1
