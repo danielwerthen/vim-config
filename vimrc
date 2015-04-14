@@ -486,6 +486,7 @@ endfunction
 nn <S-Tab>   :call FufSetIgnore() <BAR> :FufFile<CR>
 nn <Tab> :call FufSetIgnore() <BAR> :FufFile **/<CR>
 nn <F3>    :call FufSetIgnore() <BAR> :FufFile **/<CR>
+nn <A-Tab> :FufRenewCache <CR>
 
 let g:fuf_splitPathMatching = 1
 let g:fuf_maxMenuWidth = 110
