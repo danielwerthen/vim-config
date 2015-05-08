@@ -843,6 +843,7 @@ nmap ga <Plug>(EasyAlign)
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1
 let g:syntastic_javascript_checkers = ['jsxhint']
+let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
 
 " jshintrc
 
