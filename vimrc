@@ -266,7 +266,7 @@ nmap <silent> ,u~ :t.\|s/./\\~/g\|:nohls<cr>
 nmap <silent> ,sw :execute ":resize " . line('$')<cr>
 
 " Use the bufkill plugin to eliminate a buffer but keep the window layout
-nmap ,bd :BD<cr>
+nmap <leader>bd :BD<cr>
 
 " Use CTRL-E to replace the original ',' mapping
 nnoremap <C-E> ,
@@ -843,7 +843,7 @@ nmap ga <Plug>(EasyAlign)
 
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1
-let g:syntastic_javascript_checkers = ['jsxhint']
+let g:syntastic_javascript_checkers = ['eslint']
 
 " jshintrc
 
